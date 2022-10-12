@@ -13,44 +13,27 @@ import SearchResults from "./components/SearchResults";
 import Home from "./components/Home";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllData, addNewRecord } from "./redux/newRecordSlice";
+import AddNewRecord from "./pages/AddNewRecord";
+import useGetAllData from "./hooks/useGetAllData";
 function App() {
-  const [search, setSearch] = useState("");
-  // const [allData, setAllData] = useState([]);
-  const dispatch = useDispatch();
-  const record = useSelector((state) => state.record);
-  console.log(record);
-  useEffect(() => {
-    const results = DATA.data.reduce((prev, val) => {
-      var item = {};
-      DATA.cols.forEach((_, colIndex) => {
-        item[DATA.cols[colIndex]] = val[colIndex];
-      });
-      prev.push(item);
-      return prev;
-    }, []);
+  // const record = useGetAllData();
+  // console.log("redcccc", record);
+  // const keys = DATA.cols;
 
-    // setAllData(results);
-    dispatch(getAllData(results));
-  }, []);
-
-  const addNewRec = () => {
-    dispatch(
-      addNewRecord()
-    );
-    console.log(record);
-  };
-
+  // const searchMyData = (e) =>
+  //   record.filter((item) =>
+  //     keys.some((key) =>
+  //       item[key].toLowerCase().includes(e.target.value.toLowerCase())
+  //     )
+  //   );
+  // console.log(searchMyData);
   return (
     <div className="App">
-      <button onClick={addNewRec}>ADD</button>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/results" element={<SearchResults />} />
+        <Route path="/addnewrecord" element={<AddNewRecord />} />
       </Routes>
-
-      {allData.map((val) => {
-        return <span>{val.Company}</span>;
-      })}
     </div>
   );
 }
