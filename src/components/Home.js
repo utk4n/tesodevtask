@@ -17,6 +17,7 @@ import HomeSearchBox from "./HomeSearchBox";
 const Home = () => {
   const navigate = useNavigate();
   const searchResult = useSelector((state) => state.record.search.searchResult);
+  const {latestSearchWord} = useSelector((state) => state.record.search);
 
   const { searchMyData, setText } = useSearch();
   const dispatch = useDispatch();
@@ -65,6 +66,7 @@ const Home = () => {
         <h2>Find in records</h2>
         <div className="input_btn">
           <input
+          value={latestSearchWord}
             type="text"
             onChange={(e) => dispatch(searchWord(e.target.value))}
           />
