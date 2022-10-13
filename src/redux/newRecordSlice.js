@@ -6,6 +6,7 @@ const initialState = {
     latestSearchWord: "",
     searchResult: [],
   },
+  modalStatus : false
 };
 
 const newRecordSlice = createSlice({
@@ -28,9 +29,37 @@ const newRecordSlice = createSlice({
       state.search.latestSearchWord = action.payload;
       return state;
     },
+    nameDesc: (state) => {
+      state.search.searchResult.sort((a, b) =>
+        a["Name Surname"] < b["Name Surname"] ? 1 : -1
+      );
+    },
+    nameAsc: (state) => {
+      state.search.searchResult.sort((a, b) =>
+        a["Name Surname"] > b["Name Surname"] ? 1 : -1
+      );
+    },
+    dateDesc : (state) => {
+      state.search.searchResult.sort((a, b) => (a.Date < b.Date ? 1 : -1));
+    },
+    dateAsc : (state) => {
+      state.search.searchResult.sort((a, b) => (a.Date > b.Date ? 1 : -1));
+    },
+    modalIsOpen: (state) => {
+      state.modalStatus = !state.modalStatus
+    }
   },
 });
 
-export const { getAllData, addNewRecord, searchResult, searchWord } =
-  newRecordSlice.actions;
+export const {
+  getAllData,
+  addNewRecord,
+  searchResult,
+  searchWord,
+  nameDesc,
+  nameAsc,
+  dateDesc,
+  dateAsc,
+  modalIsOpen
+} = newRecordSlice.actions;
 export default newRecordSlice.reducer;

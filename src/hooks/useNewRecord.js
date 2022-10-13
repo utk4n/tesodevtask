@@ -13,7 +13,7 @@ const useNewRecord = () => {
     });
   };
 
-  return {newRecordHandle,newRecord};
+  return { newRecordHandle, newRecord };
 };
 
 export default useNewRecord;
