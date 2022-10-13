@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import Location from "../assets/loc.svg";
 const HomeSearchBox = () => {
   const searchResult = useSelector((state) => state.record.search.searchResult);
-const navigate = useNavigate()
+  const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const searchResultDisplay =
@@ -34,16 +34,16 @@ const navigate = useNavigate()
 
   return (
     <>
-    
-    {searchResultDisplay.length > 1 &&  <div className="search_box">
-            {searchResultDisplay}
-            {searchResultDisplay.length >= 3 && (
-              <div className="show_more">
-                <p onClick={() => navigate("/results")}>Show more...</p>
-              </div>
-            )}
-          </div>}
-    
+      {searchResultDisplay.length > 1 && (
+        <div className="search_box">
+          {searchResultDisplay}
+          {searchResultDisplay.length >= 3 && (
+            <div className="show_more">
+              <p onClick={() => navigate("/results")}>Show more...</p>
+            </div>
+          )}
+        </div>
+      )}
     </>
   );
 };

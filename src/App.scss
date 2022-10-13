@@ -22,8 +22,9 @@
   header {
     display: flex;
     align-items: flex-end;
-    width: 80%;
+    width: 70%;
     margin-top: 1rem;
+    margin-bottom: 1rem;
   }
   .logo_searchApp {
     display: flex;
@@ -442,10 +443,9 @@
   }
 
   .results_table {
-    display: grid;
-    grid-template-columns: 259px 726px 1fr;
-    grid-template-rows: 78.86px;
-    place-content: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     padding-inline: 1rem;
     font-family: "Inter";
 
@@ -453,7 +453,7 @@
       display: flex;
       align-items: center;
       flex-direction: column;
-
+      margin-right: 8rem;
       .record_row {
         display: flex;
         align-items: center;
@@ -519,6 +519,50 @@
           }
         }
       }
+    }
+  }
+
+  .pagination {
+    display: flex;
+    gap: 0.5rem;
+    list-style: none;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    margin-right: 10rem;
+    li {
+      width: 24px;
+      height: 24px;
+      background: #ffffff;
+      border: 1px solid #484848;
+      border-radius: 4px;
+      font-family: "Roboto";
+      font-style: normal;
+      font-weight: 700;
+      font-size: 14px;
+      line-height: 16px;
+      color: #484848;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      &.active {
+        background: #204080;
+        color: white;
+      }
+    }
+    .prev_btn,
+    .next_btn {
+      font-family: "Roboto";
+      font-style: normal;
+      font-weight: 700;
+      font-size: 14px;
+      line-height: 16px;
+      width: 85.71px;
+      height: 25px;
+      background: #FFFFFF;
+      border: 1px solid #484848;
+      border-radius: 4px;
+      color: #484848;
     }
   }
 }

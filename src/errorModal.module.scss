@@ -1,0 +1,57 @@
+.error_modal {
+  width: 375px;
+  height: 123px;
+  background: #c4c4c4;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+padding: 1rem 1.5rem 8rem 1rem;
+  position: absolute;
+  right: 1rem;
+  bottom: 2rem;
+  .close_icon {
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    cursor: pointer;
+  }
+
+  .modal_wrapper {
+    display: flex;
+    // align-items: center;
+    justify-content: center;
+    .modal_info {
+      div {
+        &:first-child {
+          font-family: "Inter";
+          font-style: normal;
+          font-weight: 700;
+          font-size: 14px;
+          line-height: 36px;
+          color: #090a0a;
+        }
+        &:last-child {
+          font-family: "Inter";
+          font-style: normal;
+          font-weight: 400;
+          font-size: 13px;
+          line-height: 24px;
+          color: #090a0a;
+          width: 30ch;
+        }
+      }
+    }
+
+    h1 {
+      margin-left: auto;
+      margin-top: 1rem;
+      color: white;
+      padding: 8px 16px;
+      width: 70px;
+      height: 32px;
+      background: #ff4e78;
+      border-radius: 48px;
+      text-align: center;
+    }
+  }
+}

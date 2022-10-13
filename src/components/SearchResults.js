@@ -1,22 +1,18 @@
-import React from "react";
 import Logo from "../assets/logo.png";
 import SortIcon from "../assets/sortIcon.svg";
 import SortOrder from "./SortOrder";
 import useDropDownState from "../hooks/useDropDownState";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import useSearch from "../hooks/useSearch";
-import { searchWord, searchResult } from "../redux/newRecordSlice";
+import { searchWord } from "../redux/newRecordSlice";
 import { useAppDispatch } from "../hooks/useAppDispatch";
-import Location from "../assets/loc.svg";
 import SearchResultTable from "./SearchResultTable";
 const SearchResults = () => {
   const { isOpen, dropDownHandler } = useDropDownState();
   const { latestSearchWord } = useSelector((state) => state.record.search);
 
-  const { searchResult } = useSelector((state) => state.record.search);
   const navigate = useNavigate();
-  console.log(searchResult);
   const { searchMyData } = useSearch();
   const dispatch = useAppDispatch();
 
@@ -41,8 +37,8 @@ const SearchResults = () => {
 
       <div className="search_section">
         <div className="order_section">
-          <button onClick={dropDownHandler} onBlur={dropDownHandler}>
-            <img src={SortIcon} alt="" /> Order By
+          <button onClick={dropDownHandler}>
+            <img src={SortIcon} alt="orderBtnArrowImg" /> Order By
           </button>
           <SortOrder isOpen={isOpen} />
         </div>

@@ -4,8 +4,10 @@ import { getAllData } from "../redux/newRecordSlice";
 import DATA from "../datas/mockData.json";
 import useAppSelector from "./useAppSelector";
 const useGetAllData = () => {
+
   const dispatch = useAppDispatch();
   const record = useAppSelector();
+
   useEffect(() => {
     const results = DATA.data.reduce((prev, val) => {
       let item = {};
@@ -17,7 +19,7 @@ const useGetAllData = () => {
     }, []);
     dispatch(getAllData(results));
   }, [dispatch]);
-
+  
   return record;
 };
 
